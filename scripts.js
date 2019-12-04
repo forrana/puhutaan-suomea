@@ -63,6 +63,7 @@ var app = new Vue({
       ["Mistä sä tykkäät?", "Tykkään kahvista ja jatelosta", "", ["chapter 5"]],
     ],
     current: 0,
+    isAnswerShown: false,
   },
   computed: {
     question: function () {
@@ -83,5 +84,8 @@ var app = new Vue({
       let randomQuestion = getRandomInt(this.questions.length);
       this.current =  randomQuestion == this.current ? randomQuestion : getRandomInt(this.questions.length);
     },
+    toggleAnswers: function () {
+      this.isAnswerShown = this.isAnswerShown ? false : true;
+    }
   }
 })

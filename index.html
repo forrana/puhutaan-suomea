@@ -11,10 +11,14 @@
 </head>
 <body>
   <div id="app" class="app">
+    <div>
+	<button v-on:click="toggleAnswers" v-if="!isAnswerShown">Show answers</button>
+	<button v-on:click="toggleAnswers" v-if="isAnswerShown">Hide answers</button>
+    </div>
     <div class="card" id="question">
       {{ current+1 }}. {{ question }}
     </div>
-    <div class="card" id="answer">
+    <div class="card" id="answer" v-if="isAnswerShown">
       {{ answer }}
     </div>
     <div>
