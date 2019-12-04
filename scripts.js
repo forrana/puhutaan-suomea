@@ -3,6 +3,20 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+function pronounceTheQuestion(question) {
+  var msg = new SpeechSynthesisUtterance();
+  var voices = window.speechSynthesis.getVoices();
+  msg.voice = voices[1]
+  msg.volume = 1; // 0 to 1
+  msg.rate = 1; // 0.1 to 10
+  msg.pitch = 1; //0 to 2
+  msg.text = question;
+  msg.lang = 'fi-FI';
+
+
+  speechSynthesis.speak(msg);
+}
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -79,10 +93,12 @@ var app = new Vue({
   methods: {
     nextQuestion: function () {
       this.current = this.current + 1 < this.questions.length ? this.current + 1 : 0
+      pronounceTheQuestion(this.questions[this.current][0])
     },
     randomQuestoin: function () {
       let randomQuestion = getRandomInt(this.questions.length);
       this.current =  randomQuestion == this.current ? randomQuestion : getRandomInt(this.questions.length);
+      pronounceTheQuestion(this.questions[this.current][0])
     },
     toggleAnswers: function () {
       this.isAnswerShown = this.isAnswerShown ? false : true;
