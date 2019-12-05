@@ -19,8 +19,8 @@ var app = new Vue({
     questions: [
       ["Moi! / Hei!", "", "", ["chapter 1"]],
       ["Mikä sun nimi on? Kuka sinä olet?",  "Mun nimi on / Minä olen", "", ["chapter 1"]],
-      ["Miten sun nimi kirjoitetaan?", "Se kirjoitetaan", "", ["chapter 1"]],
-      ["Miten sun sukunimi kirjoitetaan?", "Se kirjoitetaan", "", ["chapter 1"]],
+      ["Miten sun nimi kirjoitetaan?", "Se kirjoitetaan A.L.A.I.A.K.S.E.I.", "", ["chapter 1"]],
+      ["Miten sun sukunimi kirjoitetaan?", "Se kirjoitetaan K.U.C.H.Y.N.", "", ["chapter 1"]],
       ["Missä sä asut?", "Mä asun Amurilla", "", ["chapter 1"]],
       ["Mistä kieltä sä puhut?", "Mä puhun englantia, venäjää, valkovenäjää ja vahan suomea ", "", ["chapter 1"]],
       ["Mistä maasta sä tulet?", "Mä tulen valkovenäjältä", "", ["chapter 1"]],
@@ -30,7 +30,7 @@ var app = new Vue({
 
       ["Terve!", "", "", ["chapter 2"]],
       ["Mitä kuuluu?", "hyvää/ihan hyvää", "", ["chapter 2"]],
-      ["Miten sun etu nimi kirjoitetaan?", "Se kirjoitetaan", "", ["chapter 2"]],
+      ["Miten sun etu nimi kirjoitetaan?", "Se kirjoitetaan A.L.A.I.A.K.S.E.I.", "", ["chapter 2"]],
       ["Mitkä asiat ovat tosi suomalaisia?", "Esimerkiksi ...", "", ["chapter 2"]],
       ["Mikä päivä tänään on?", "Tänään on keskivikko", "", ["chapter 2"]],
       ["Asutko sä Tampereella?", "Joo, asun.", "", ["chapter 2"]],
@@ -74,37 +74,52 @@ var app = new Vue({
     ],
     current: 0,
     isAnswerShown: false,
+    selectedChapters: [1,2,3,4,5],
   },
   computed: {
     question: function () {
-      return this.questions[this.current][0]
+      return this.includedQuestion[this.current][0]
     },
     answer: function () {
-      return this.questions[this.current][1]
+      return this.includedQuestion[this.current][1]
     },
-    // translation: function () {
-    //   return this.questions[this.current][2]
-    // }
+    includedQuestion: function () {
+      let selectedQuestionsArray = [];
+
+      this.selectedChapters.forEach(
+        (selectedChapter) => {
+          let startIndex = (selectedChapter - 1) * 10;
+          for(let i = startIndex; i < startIndex + 10; i++) {
+            selectedQuestionsArray.push(this.questions[i]);
+          }
+        }
+      )
+
+      return selectedQuestionsArray;
+    }
   },
   methods: {
     nextQuestion: function () {
-      this.current = this.current + 1 < this.questions.length ? this.current + 1 : 0
-      pronounceTheQuestion(this.questions[this.current][0])
+      this.current = this.current + 1 < this.includedQuestion.length ? this.current + 1 : 0
+      pronounceTheQuestion(this.includedQuestion[this.current][0])
     },
     prevQuestion: function () {
-      this.current = this.current - 1 > 0 ? this.current - 1 : this.questions.length - 1
-      pronounceTheQuestion(this.questions[this.current][0])
+      this.current = this.current - 1 > 0 ? this.current - 1 : this.includedQuestion.length - 1
+      pronounceTheQuestion(this.includedQuestion[this.current][0])
     },
     randomQuestoin: function () {
-      let randomQuestion = getRandomInt(this.questions.length);
-      this.current =  randomQuestion == this.current ? randomQuestion : getRandomInt(this.questions.length);
-      pronounceTheQuestion(this.questions[this.current][0])
+      let randomQuestion = getRandomInt(this.includedQuestion.length);
+      this.current =  randomQuestion == this.current ? randomQuestion : getRandomInt(this.includedQuestion.length);
+      pronounceTheQuestion(this.includedQuestion[this.current][0])
     },
     toggleAnswers: function () {
       this.isAnswerShown = this.isAnswerShown ? false : true;
     },
     vocalizeAnswer: function () {
-      pronounceTheQuestion(this.questions[this.current][1])
+      pronounceTheQuestion(this.includedQuestion[this.current][1])
+    },
+    resetIndex: function () {
+      this.current = 0;
     }
   }
 })

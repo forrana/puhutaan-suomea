@@ -10,20 +10,23 @@
   <link rel="stylesheet" href="lib/css/bootstrap-reboot.min.css">
   <link rel="stylesheet" href="lib/css/bootstrap.min.css">
   <script src="lib/vue.js"></script>
-  <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="node_modules/bootstrap-vue/dist/bootstrap-vue.min.js"></script>
-  <script src="node_modules/bootstrap-vue/dist/bootstrap-vue.common.min.js"></script>
-  <script src="node_modules/bootstrap-vue/dist/bootstrap-vue.esm.min.js"></script> -->
 </head>
 <body>
   <div id="app" class="app">
     <div>
-	<button v-on:click="toggleAnswers" v-if="!isAnswerShown" class="btn btn-danger">Show answers</button>
-	<button v-on:click="toggleAnswers" v-if="isAnswerShown" class="btn btn-danger">Hide answers</button>
+    	<button v-on:click="toggleAnswers" v-if="!isAnswerShown" class="btn btn-danger">Show answers</button>
+    	<button v-on:click="toggleAnswers" v-if="isAnswerShown" class="btn btn-danger">Hide answers</button>
     </div>
     <div class="lang-card card" id="question">
-      {{ current+1 }}. {{ question }}
+      {{ current + 1 }}. {{ question }}
     </div>
+    <section class="selected-chapters" v-on:click="resetIndex">
+      <span><input type="checkbox" value="1" v-model="selectedChapters">1</span>
+      <span><input type="checkbox" value="2" v-model="selectedChapters">2</span>
+      <span><input type="checkbox" value="3" v-model="selectedChapters">3</span>
+      <span><input type="checkbox" value="4" v-model="selectedChapters">4</span>
+      <span><input type="checkbox" value="5" v-model="selectedChapters">5</span>
+    </section>
     <div class="lang-card card" id="answer" v-if="isAnswerShown">
       {{ answer }}
       <button v-on:click="vocalizeAnswer" class="btn-success">Vocalize</button>
