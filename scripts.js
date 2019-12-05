@@ -5,15 +5,11 @@ function getRandomInt(max) {
 
 function pronounceTheQuestion(question) {
   var msg = new SpeechSynthesisUtterance();
-  var voices = window.speechSynthesis.getVoices();
-  msg.voice = voices[1]
   msg.volume = 1; // 0 to 1
   msg.rate = 1; // 0.1 to 10
   msg.pitch = 1; //0 to 2
   msg.text = question;
   msg.lang = 'fi-FI';
-
-
   speechSynthesis.speak(msg);
 }
 
@@ -22,10 +18,10 @@ var app = new Vue({
   data: {
     questions: [
       ["Moi! / Hei!", "", "", ["chapter 1"]],
-      ["Mikä sun nimi on? / Kuka sinä olet",  "Mun nimi on / Minä olen", "", ["chapter 1"]],
+      ["Mikä sun nimi on? Kuka sinä olet?",  "Mun nimi on / Minä olen", "", ["chapter 1"]],
       ["Miten sun nimi kirjoitetaan?", "Se kirjoitetaan", "", ["chapter 1"]],
       ["Miten sun sukunimi kirjoitetaan?", "Se kirjoitetaan", "", ["chapter 1"]],
-      ["Missä sä asut", "Mä asun Amurilla", "", ["chapter 1"]],
+      ["Missä sä asut?", "Mä asun Amurilla", "", ["chapter 1"]],
       ["Mistä kieltä sä puhut?", "Mä puhun englantia, venäjää, valkovenäjää ja vahan suomea ", "", ["chapter 1"]],
       ["Mistä maasta sä tulet?", "Mä tulen valkovenäjältä", "", ["chapter 1"]],
       ["Mikä on sun puhelinnumero?", "", "", ["chapter 1"]],
@@ -34,13 +30,13 @@ var app = new Vue({
 
       ["Terve!", "", "", ["chapter 2"]],
       ["Mitä kuuluu?", "hyvää/ihan hyvää", "", ["chapter 2"]],
-      ["Miten sun (etu/suku) nimi kirjoitetaan", "Se kirjoitetaan", "", ["chapter 2"]],
-      ["Mitkä asiat ovat tosi suomalaisia", "Esimerkiksi ...", "", ["chapter 2"]],
+      ["Miten sun etu nimi kirjoitetaan?", "Se kirjoitetaan", "", ["chapter 2"]],
+      ["Mitkä asiat ovat tosi suomalaisia?", "Esimerkiksi ...", "", ["chapter 2"]],
       ["Mikä päivä tänään on?", "Tänään on keskivikko", "", ["chapter 2"]],
       ["Asutko sä Tampereella?", "Joo, asun.", "", ["chapter 2"]],
       ["Mitä kieliä sä puhut?", "Mä puhun englantia, valkovenäjää, venäjää ja vahan suomea", "", ["chapter 2"]],
       ["Minkämaalainen sinä olet?", "Mä olen valkovenäläinen", "", ["chapter 2"]],
-      ["Missä (paikoissa) olet käynyt (täällä) Suomessa?", "Olen käynyt Helsingissa Turussa", "", ["chapter 2"]],
+      ["Missä paikoissa olet käynyt täällä Suomessa?", "Olen käynyt Helsingissa Turussa", "", ["chapter 2"]],
       ["Miksi olet Suomessa?", "Olen Suomessa, koska täällä töissä", "", ["chapter 2"]],
 
       ["Mikä päivä tänään on?", "Tänään on keskivikko", "", ["chapter 3"]],
@@ -59,19 +55,19 @@ var app = new Vue({
       ["Mitä sinä teet yleensä viikonloppuna?", "Menen ulos ja pyöräilen ja teen ruokka", "", ["chapter 4"]],
       ["Missä puhut yleensä suomea?", "Työkaverian ja kaverian kansaa", "", ["chapter 4"]],
       ["Mihin sä haluaisit matkustaa?", "Haluaisin matkustaa Islantin", "", ["chapter 4"]],
-      ["Leivetko usein / Saunotko usein? / Nukutko usein?", "En leivo usein. en tykkää leipoa. Sannonme tosi usein", "", ["chapter 4"]],
+      ["Leivetko usein? Saunotko usein? Nukutko usein?", "En leivo usein. en tykkää leipoa. Sannonme tosi usein", "", ["chapter 4"]],
       ["Kuinka kauan olet opiskellut suomea?", "Olen opiskellut suomea noin kolme kuukautta", "", ["chapter 4"]],
       ["Mitä tykkäät tehdä viikonloppuna?", "Tykkään käyn Talinnissa tai Tukolmissa", "", ["chapter 4"]],
-      ["Millainen sää/ilma on tänään", "On kylmä. Sataa lunta", "", ["chapter 4"]],
-      ["Mitä teit eilen", "Opiskelin suomea ja menin tuli pyöritys treenit", "", ["chapter 4"]],
+      ["Millainen sää on tänään? Millainen ilma on tänään?", "On kylmä. Sataa lunta", "", ["chapter 4"]],
+      ["Mitä teit eilen?", "Opiskelin suomea ja menin tuli pyöritys treenit", "", ["chapter 4"]],
 
-      ["Miten sulla / teillä menee?", "Ihan hyvin", "", ["chapter 5"]],
+      ["Miten sulla menee? Miten teillä menee?", "Ihan hyvin", "", ["chapter 5"]],
       ["Mitä sä teit viikonloppuna", "Menen ulos ja pyöräilen ja teen ruokka", "", ["chapter 5"]],
       ["Vietätko sö joulua? Miten? Mitä te teette yleensä?", "En vietä joulua. Meillä on muita juhlia.", "", ["chapter 5"]],
       ["Millainen perhe sulla on?", "Mun perhe on pieni: vain minä ja aiti ja isä ja sisko ja vieli", "", ["chapter 5"]],
       ["Mitä sä tykkäät tehdä?", "Tykkään tuli pyörityssa ja pyöralissa", "", ["chapter 5"]],
       ["Millainen sää on Suomessa marraskuussa? Entä helmikuussa?", "Marraskussa on ..., helmikuussa on ...", "", ["chapter 5"]],
-      ["Onko teillä töissä / kaverian kanssa pikkujoulut? Missä? Mitä teette?", "", "", ["chapter 5"]],
+      ["Onko teillä töissä pikkujoulut? Onko kaverian kanssa pikkujoulut? Missä? Mitä teette?", "", "", ["chapter 5"]],
       ["Mitä Suomessa tehdään jouluna?", "", "", ["chapter 5"]],
       ["Millainen Suomi on talvella, syksillä, kesällä, keväällä?", "", "", ["chapter 5"]],
       ["Mistä sä tykkäät?", "Tykkään kahvista ja jatelosta", "", ["chapter 5"]],
@@ -95,6 +91,10 @@ var app = new Vue({
       this.current = this.current + 1 < this.questions.length ? this.current + 1 : 0
       pronounceTheQuestion(this.questions[this.current][0])
     },
+    prevQuestion: function () {
+      this.current = this.current - 1 > 0 ? this.current - 1 : this.questions.length - 1
+      pronounceTheQuestion(this.questions[this.current][0])
+    },
     randomQuestoin: function () {
       let randomQuestion = getRandomInt(this.questions.length);
       this.current =  randomQuestion == this.current ? randomQuestion : getRandomInt(this.questions.length);
@@ -102,6 +102,9 @@ var app = new Vue({
     },
     toggleAnswers: function () {
       this.isAnswerShown = this.isAnswerShown ? false : true;
+    },
+    vocalizeAnswer: function () {
+      pronounceTheQuestion(this.questions[this.current][1])
     }
   }
 })
