@@ -28,7 +28,9 @@
       <span><input type="checkbox" value="5" v-model="selectedChapters">5</span>
     </section>
     <div class="lang-card card" id="answer" v-if="isAnswerShown">
-      {{ answer }}
+      <article class="answer">
+        {{ answer }}
+      </article>
       <button v-on:click="vocalizeAnswer" class="btn-success">Vocalize</button>
     </div>
     <div class="btn-group">
