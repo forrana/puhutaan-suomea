@@ -66,7 +66,7 @@ var app = new Vue({
       ["Vietätko sö joulua? Miten? Mitä te teette yleensä?", "En vietä joulua. Meillä on muita juhlia.", "", ["chapter 5"]],
       ["Millainen perhe sulla on?", "Mun perhe on pieni: vain minä ja aiti ja isä ja pikkusisko ja vieli", "", ["chapter 5"]],
       ["Mitä sä tykkäät tehdä?", "Tykkään tuli pyörityssa ja pyöralissa", "", ["chapter 5"]],
-      ["Millainen sää on Suomessa marraskuussa? Entä helmikuussa?", "Marraskussa on viileä, sataa räntää ja lunta, joskus maassa on lunta. Helmikuussa on kylmä ja pakkasta. Sataa lunta ja maassa on lunta", "", ["chapter 5"]],
+      ["Millainen sää on Suomessa marraskuussa? Entä helmikuussa?", "Marraskuussa on harmaa ja sataa paljon vettä tai rantää. Helmikuussa on kylmä ja pakkasta. Sataa lunta ja maassa on lunta", "", ["chapter 5"]],
       ["Onko teillä töissä pikkujoulut? Onko kaverian kanssa pikkujoulut? Missä? Mitä teette?", "Joo, meillä on kaksi pikkujoulut - töissä pikkujoulut ja kaverian kanssa pikkujoulut", "", ["chapter 5"]],
       ["Mitä Suomessa tehdään jouluna?", "Joulu on kaunis aika Suomessa. On paljon perinteitä. Ihmiset ostavat lahjoja. Jouluruoka on hyvää: joulutortut, piparit, glögi, laatikot, kinkku. Suomalaiset käyvat hautausmaalla jouluaattona.", "", ["chapter 5"]],
       ["Millainen Suomi on talvella, syksillä, kesällä, keväällä?", "Syksyllä sataa paljon. On ruska. Talvella on kylmä ja pakkasta. Voi luskea mäkeä, hiihtää ja luistella. Maassa on lunta. Kesälla on lämmintä ja voi uida järvessä ja saunoa mökillä. Syksyllä voi mennä sienimetsään tai marjastaa. Päivä on vielä pitkä. Talvella on pimeää.", "", ["chapter 5"]],
