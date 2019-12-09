@@ -115,11 +115,17 @@ var app = new Vue({
     toggleAnswers: function () {
       this.isAnswerShown = this.isAnswerShown ? false : true;
     },
+    vocalizeQuestion: function () {
+      pronounceTheQuestion(this.includedQuestion[this.current][0])
+    },
     vocalizeAnswer: function () {
       pronounceTheQuestion(this.includedQuestion[this.current][1])
     },
     resetIndex: function () {
       this.current = 0;
-    }
+    },
+  },
+  mounted: function () {
+    pronounceTheQuestion(this.includedQuestion[this.current][0])
   }
 })

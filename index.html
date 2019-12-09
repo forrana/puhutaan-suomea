@@ -17,7 +17,10 @@
     	<button v-on:click="toggleAnswers" v-if="isAnswerShown" class="btn btn-danger">Hide answers</button>
     </div>
     <div class="lang-card card" id="question">
-      {{ current + 1 }}. {{ question }}
+      <article>
+        {{ current+1 }}. {{ question }}
+      </article>
+      <button v-on:click="vocalizeQuestion" class="btn btn-default">&#128266;</button>
     </div>
     <section class="selected-chapters" v-on:click="resetIndex">
       <span><input type="checkbox" value="1" v-model="selectedChapters">1</span>
@@ -38,6 +41,6 @@
       <button v-on:click="nextQuestion" class="btn-success">Next</button>
     </div>
   </div>
-  <script src="scripts.js" type="module"></script>
+  <script src="scripts.js?v=1.0" type="module"></script>
 </body>
 </html>
