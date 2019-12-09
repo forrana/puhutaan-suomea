@@ -86,6 +86,12 @@ var app = new Vue({
     },
     toggleAnswers: function () {
       this.isAnswerShown = this.isAnswerShown ? false : true;
-    }
+    },
+    vocalizeQuestion: function () {
+      pronounceTheQuestion(this.includedQuestion[this.current][0])
+    },
+  },
+  mounted: function () {
+    pronounceTheQuestion(this.includedQuestion[this.current][0])
   }
 })

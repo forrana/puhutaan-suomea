@@ -16,7 +16,10 @@
 	<button v-on:click="toggleAnswers" v-if="isAnswerShown">Hide answers</button>
     </div>
     <div class="card" id="question">
-      {{ current+1 }}. {{ question }}
+      <article>
+        {{ current+1 }}. {{ question }}
+      </article>
+      <button v-on:click="vocalizeQuestion" class="btn btn-default">&#128266;</button>
     </div>
     <div class="card" id="answer" v-if="isAnswerShown">
       {{ answer }}
