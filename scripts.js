@@ -104,7 +104,7 @@ var app = new Vue({
       pronounceTheQuestion(this.includedQuestion[this.current][0])
     },
     prevQuestion: function () {
-      this.current = this.current - 1 > 0 ? this.current - 1 : this.includedQuestion.length - 1
+      this.current = this.current - 1 >= 0 ? this.current - 1 : this.includedQuestion.length - 1
       pronounceTheQuestion(this.includedQuestion[this.current][0])
     },
     randomQuestoin: function () {
