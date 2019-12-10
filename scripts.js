@@ -17,7 +17,7 @@ var app = new Vue({
   el: '#app',
   data: {
     questions: [
-      ["Moi! / Hei!", "", "", ["chapter 1"]],
+      ["Oli kiva jutella, hyvää iltää!", "Hyvä illan jatkoa!", "", ["chapter 1"]],
       ["Mikä sun nimi on? Kuka sinä olet?",  "Mun nimi on / Minä olen", "", ["chapter 1"]],
       ["Miten sun nimi kirjoitetaan?", "Se kirjoitetaan A.L.A.I.A.K.S.E.I.", "", ["chapter 1"]],
       ["Miten sun sukunimi kirjoitetaan?", "Se kirjoitetaan K.U.C.H.Y.N.", "", ["chapter 1"]],
@@ -67,10 +67,10 @@ var app = new Vue({
       ["Millainen perhe sulla on?", "Mun perhe on pieni: vain minä ja aiti ja isä ja pikkusisko ja vieli", "", ["chapter 5"]],
       ["Mitä sä tykkäät tehdä?", "Tykkään tuli pyörityssa ja pyöralissa", "", ["chapter 5"]],
       ["Millainen sää on Suomessa marraskuussa? Entä helmikuussa?", "Marraskuussa on harmaa ja sataa paljon vettä tai rantää. Helmikuussa on kylmä ja pakkasta. Sataa lunta ja maassa on lunta", "", ["chapter 5"]],
-      ["Onko teillä töissä pikkujoulut? Onko kaverian kanssa pikkujoulut? Missä? Mitä teette?", "Joo, meillä on kaksi pikkujoulut - töissä pikkujoulut ja kaverian kanssa pikkujoulut", "", ["chapter 5"]],
-      ["Mitä Suomessa tehdään jouluna?", "Joulu on kaunis aika Suomessa. On paljon perinteitä. Ihmiset ostavat lahjoja. Jouluruoka on hyvää: joulutortut, piparit, glögi, laatikot, kinkku. Suomalaiset käyvat hautausmaalla jouluaattona.", "", ["chapter 5"]],
-      ["Millainen Suomi on talvella, syksillä, kesällä, keväällä?", "Syksyllä sataa paljon. On ruska. Talvella on kylmä ja pakkasta. Voi luskea mäkeä, hiihtää ja luistella. Maassa on lunta. Kesälla on lämmintä ja voi uida järvessä ja saunoa mökillä. Syksyllä voi mennä sienimetsään tai marjastaa. Päivä on vielä pitkä. Talvella on pimeää.", "", ["chapter 5"]],
-      ["Mistä sä tykkäät?", "Tykkään kahvista, jatelosta, pyöralista ja tuli pyöritysta.", "", ["chapter 5"]],
+      ["Onko teillä töissä pikkujoulut? Onko kaverian kanssa pikkujoulut? Missä? Mitä teette?", "Joo, meillä on kaksi pikkujoulut - töissä pikkujoulut ja kaverian kanssa pikkujoulut. Me juomme glögiä. Kaikki saavat lahjan.", "", ["chapter 5"]],
+      ["Mitä Suomessa tehdään jouluna?", "Joulu on kaunis aika Suomessa. On paljon perinteitä. Ihmiset ostavat lahjoja. Jouluruoka on hyvää: joulutortut, glögi, laatikot.", "", ["chapter 5"]],
+      ["Millainen Suomi on talvella, syksyllä, kesällä, keväällä?", "Syksyllä sataa paljon. On ruska ja harmaa. Talvella on kylmä ja pakkasta. On pimeää. Maassa on lunta. Kesälla aurinko paistaa ja on lämmintä.", "", ["chapter 5"]],
+      ["Mistä sä tykkäät?", "Tykkään kahvista ja jatelosta.", "", ["chapter 5"]],
     ],
     current: 0,
     isAnswerShown: false,
